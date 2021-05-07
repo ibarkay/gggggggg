@@ -171,6 +171,6 @@ app.post("/api/logout", auth, async (req, res) => {
 });
 
 // --------listener--------------
-app.listen(1337, () => {
+app.listen(process.env.PORT || 1337, () => {
 	console.log("running on 1337");
 });

@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-require("../server/modules/mongoose");
+require("./modules/mongoose");
 const cors = require("cors");
 const auth = require("./middleware/auth");
 const multer = require("multer");

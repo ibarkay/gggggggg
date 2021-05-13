@@ -82,7 +82,7 @@ app.post(
 	upload.single("avatar"), //*only then upload middleware
 	async (req, res) => {
 		const buffer = await sharp(req.file.buffer) //sharp-resize the img
-			.resize({ width: 200, height: 200 })
+			.resize({ width: 150, height: 150 })
 			.png()
 			.toBuffer();
 

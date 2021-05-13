@@ -59,16 +59,12 @@ app.delete("/api/delete/msgs", auth, async (req, res) => {
 	}
 });
 // ?delete msg by id
-// TODO : code here
-// !
 app.delete("/api/delete/msg/:id", auth, async (req, res) => {
 	try {
-		req.user.msgs = req.user.msgs.filter((m) => {
-			if (m._id !== req.params.id) {
-				return m;
-			}
+		req.user.msgs = await req.user.msgs.filter((m) => {
+			return m._id.toString() !== req.params.id;
 		});
-		req.user.save();
+		await req.user.save();
 		res.send("ok");
 	} catch (e) {
 		res.status(400).send(e.message);
